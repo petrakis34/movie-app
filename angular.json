@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles/styles.less",
+              "src/styles/sb-admin-2.css"
             ],
             "scripts": []
           },
