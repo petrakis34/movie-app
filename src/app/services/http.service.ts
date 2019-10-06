@@ -15,10 +15,9 @@ export class HttpService {
 
   public retrieveMovies(): Observable<IMovie[]> {
     return this.httpClient.get<IMoviesResponse>(AppEndpoints.discoverMovies).pipe(
-      map((res) => { 
-        return res.results 
+      map((res) => {
+        return res.results;
       })
     )
   }
-
 }

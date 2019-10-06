@@ -2,9 +2,31 @@
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">Movie List</h6>
     </div>
-    <div class="card-body">
-        <div class="movie-list-area">
-            Movie List
+
+    <div class="card-body movies-card-body">
+        <div class="movie-table-area overflow-auto">
+            <table class="table table-hover movies-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Popularity</th>
+                        <th>Release Date</th>
+                        <th>Vote Average</th>
+                        <th>Vote Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let movie of movies; let i = index">
+                        <tr (click)="movieClicked(movie.id)">
+                            <td>{{movie.title}}</td>
+                            <td>{{movie.popularity}}</td>
+                            <td>{{movie.release_date}}</td>
+                            <td>{{movie.vote_average}}</td>
+                            <td>{{movie.vote_count}}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

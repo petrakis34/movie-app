@@ -3,8 +3,23 @@
         <h6 class="m-0 font-weight-bold text-primary">Movie Preview</h6>
     </div>
     <div class="card-body">
-        <div class="movie-preview pt-4 pb-2">
-            Some movie details
-        </div>
+        <ng-container *ngIf="movie">
+            <div class="movie-preview-area pb-2 poster-area row">
+                <div class="col">
+                    <img [src]="imageSrc" class="posterImage">
+                </div>
+                <div class="col">
+                    <h6>Title: </h6>
+                    <p class="movie-details">{{ movie.title }}</p>
+                    <h6>Released: </h6>
+                    <p class="movie-details">{{ movie.release_date }}</p>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!movie">
+            <div class="movie-preview-area pt-4 pb-2 text-center">
+                <p class="movie-details">Please select a movie from the list at the left</p>
+            </div>
+        </ng-container>
     </div>
 </div>
