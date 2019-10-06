@@ -6,17 +6,8 @@ import { HttpService } from './services/http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent implements OnInit{
 
-  constructor(private httpService: HttpService) {}
+export class AppComponent {
 
-  ngOnInit() {
-    this.getMovies();
-  }
 
-  private getMovies(){
-    this.httpService.retrieveMovies().subscribe((res) => {
-      console.log(res);
-    })
-  }
 }

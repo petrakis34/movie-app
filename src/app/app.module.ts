@@ -4,10 +4,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpService } from './services/http.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieDashboardComponent } from './components/movie-dashboard/movie-dashboard.component';
+import { MoviePreviewComponent } from './components/movie-dashboard/movie-preview/movie-preview.component';
+import { MoviesListComponent } from './components/movie-dashboard/movies-list/movies-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MoviePreviewComponent,
+    MovieDashboardComponent,
+    MoviesListComponent
   ],
   imports: [
     BrowserModule,
