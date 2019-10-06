@@ -22,6 +22,14 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-12 d-flex align-items-center">
+                                    <ng-container *ngFor="let genre of genres; let last = last">
+                                        <p><i>{{genre}}<span *ngIf="!last">, </span></i></p>
+                                    </ng-container>
+                                    <p><i>(Genres)</i></p>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-1">
                                     <div style="font-size: 40px;">
                                         <i class="fa fa-star fa-lg"></i>

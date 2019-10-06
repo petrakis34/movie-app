@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { AppEndpoints } from 'src/app/app.endpoints';
 import { IMoviesResponse } from '../models/responses/movies.response';
 import { map } from 'rxjs/operators';
+import { IGenre } from '../models/classes/genre.model';
+import { IMovieGenresResponse } from '../models/responses/movieGenres.response';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +21,13 @@ export class HttpService {
         return res.results;
       })
     )
+  }
+
+  public retrieveGenres(): Observable<IGenre[]> {
+    return this.httpClient.get<IMovieGenresResponse>(AppEndpoints.genreMovies).pipe(
+      map((res) => { 
+        console.log(res);
+        return res.genres })
+    );
   }
 }
