@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { Movie } from 'src/app/models/classes/movie.model';
 import { AppEndpoints } from 'src/app/app.endpoints';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-movie-preview',
@@ -9,10 +11,11 @@ import { AppEndpoints } from 'src/app/app.endpoints';
 })
 export class MoviePreviewComponent implements OnInit {
   public imageSrc = "";
+  
   @Input()
   movie: Movie;
   
-  constructor() { }
+  constructor(private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
   }
@@ -28,5 +31,10 @@ export class MoviePreviewComponent implements OnInit {
   public getMoviePoster(movie: Movie) {
     if(!movie) return;
     this.imageSrc = AppEndpoints.setUrl(AppEndpoints.posterImage, [movie.poster_path]);
+  }
+
+  public goToMovie(movie: Movie) {
+    this.dataService.sendMovie(movie);
+    this.router.navigate(['/movie', movie.title]);
   }
 }
