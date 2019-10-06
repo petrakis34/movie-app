@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DataService } from 'src/app/services/data.service';
@@ -19,7 +19,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   public releaseYear: string;
   public genres: string[] = [];
 
-  constructor(private dataService: DataService, private httpService: HttpService) { }
+  constructor(private dataService: DataService, private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
     this.movieSub = this.dataService.selectedMovieObs.subscribe(movie => {
@@ -50,6 +50,10 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     }
     console.log(dateObj.getFullYear().toString());
     return dateObj.getFullYear().toString();
+  }
+
+  public goToMovieList() {
+    this.router.navigate(['/movies']);
   }
 
   private getGenres(movie: Movie) {

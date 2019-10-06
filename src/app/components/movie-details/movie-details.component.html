@@ -3,6 +3,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h3 class="m-0 font-weight-bold text-primary">Movie Details</h3>
+                <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm movie-btn" (click)="goToMovieList()">BACK TO LIST</a>
             </div>
 
             <div class="card-body">
@@ -24,9 +25,8 @@
                             <div class="row">
                                 <div class="col-12 d-flex align-items-center">
                                     <ng-container *ngFor="let genre of genres; let last = last">
-                                        <p><i>{{genre}}<span *ngIf="!last">, </span></i></p>
+                                        <p><i>{{genre}}<span *ngIf="!last">,&nbsp;</span></i></p>
                                     </ng-container>
-                                    <p><i>(Genres)</i></p>
                                 </div>
                             </div>
                             <div class="row">
