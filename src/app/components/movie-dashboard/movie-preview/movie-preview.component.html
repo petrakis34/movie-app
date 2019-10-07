@@ -1,7 +1,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">Movie Preview</h6>
-        <a *ngIf="movie" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm movie-btn" (click)="goToMovie(movie)">GO TO MOVIE!</a>
+        <a *ngIf="movie" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm movie-btn btn-cursor" (click)="goToMovie(movie)">GO TO MOVIE!</a>
     </div>
     <div class="card-body pt-0">
         <ng-container *ngIf="movie">
