@@ -10,9 +10,16 @@ export class DataService {
   private selectedMovieSubj: BehaviorSubject<Movie> = new BehaviorSubject(undefined);
   public selectedMovieObs: Observable<Movie> = this.selectedMovieSubj.asObservable();
 
+  private searchedMovieSubj: BehaviorSubject<string> = new BehaviorSubject(undefined);
+  public searchedMovieObs: Observable<string> = this.searchedMovieSubj.asObservable();
+
   constructor() { }
 
   public sendMovie(movie: Movie) {
     this.selectedMovieSubj.next(movie);
+  }
+
+  public searchMovie(term: string) {
+    this.searchedMovieSubj.next(term);
   }
 }

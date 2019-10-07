@@ -9,6 +9,7 @@ import { MoviePreviewComponent } from './components/movie-dashboard/movie-previe
 import { MoviesListComponent } from './components/movie-dashboard/movies-list/movies-list.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbPaginationModule
+    NgbPaginationModule,
+    FormsModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

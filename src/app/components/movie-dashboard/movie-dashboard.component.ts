@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { Movie } from 'src/app/models/classes/movie.model';
 import { PaginationData } from 'src/app/models/classes/paginationData.model';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-movie-dashboard',
@@ -13,10 +14,13 @@ export class MovieDashboardComponent implements OnInit {
   public movie: Movie;
   public paginationData = new PaginationData();
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private dataService: DataService) {}
 
   ngOnInit() {
     this.getMovies();
+    this.dataService.searchedMovieObs.subscribe(searchTerm => {
+      if(searchTerm) this.getSearchedMovies(searchTerm);
+    })
   }
 
   private getMovies(page?: number){
@@ -28,6 +32,16 @@ export class MovieDashboardComponent implements OnInit {
         this.refreshMovies(res.results);
       }
     })
+  }
+
+  private getSearchedMovies(searchTerm?: string){
+    if(searchTerm) {
+      this.httpService.retrieveSearchedMovies(searchTerm).subscribe((res) => {
+        if(res && res.results) {
+          console.log(res);
+        }
+      })
+    }
   }
 
   public getClickedMovie(movieId: number) {

@@ -1,5 +1,5 @@
-import { IGenre } from '../classes/genre.model';
+import { IGenericModel } from '../classes/generic.model';
 
 export interface IMovieGenresResponse {
-    genres: IGenre[];
+    genres: IGenericModel[];
 }

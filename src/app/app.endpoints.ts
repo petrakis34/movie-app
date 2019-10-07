@@ -6,6 +6,7 @@ export class AppEndpoints {
     public static discoverMovies = AppEndpoints.baseUrl + "/discover/movie" + AppEndpoints.api_key;
     public static genreMovies = AppEndpoints.baseUrl + "/genre/movie/list" + AppEndpoints.api_key;
     public static posterImage = AppEndpoints.baseImageUrl + "/w500/:p" + AppEndpoints.api_key;
+    public static searchKeywords = AppEndpoints.baseUrl + "/search/keyword" + AppEndpoints.api_key;
 
     public static setUrl(url: string, params: string[]) {
         params.forEach(p => {
@@ -14,10 +15,10 @@ export class AppEndpoints {
         return url;
     }
 
-    public static getQueryUrl(url: string, page?: number, sortBy?: string): string{
+    public static getQueryUrl(url: string, page?: number, sortBy?: string, searchTerm?: string): string{
         if(page) url += '&page=' + page;
         if(sortBy) url += '&sort_by=' + sortBy;
-  
+        if(searchTerm) url += '&query=' + searchTerm; 
         return url;
       }
 }
