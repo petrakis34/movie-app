@@ -1,6 +1,6 @@
 # Popular Movies Application
 
-This is simple movies application that shows a list of popular movies and information regarding each movie. The application is built using Angular 8 and Node js in order retrieve data from [The Movie Database](https://developers.themoviedb.org/3/discover/movie-discover)
+This is simple movies application that shows a list of popular movies and information regarding each movie. The application is built using Angular 8 using [The Movie Database](https://developers.themoviedb.org/3/discover/movie-discover)
 
 ## Getting Started
 
