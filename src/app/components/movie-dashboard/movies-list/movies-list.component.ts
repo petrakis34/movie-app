@@ -9,7 +9,7 @@ import { PaginationData } from 'src/app/models/classes/paginationData.model';
 })
 export class MoviesListComponent implements OnInit {
   public totalPages: number;
-  public pd: PaginationData;
+  public selectedRow: number;
 
   @Input()
   movies: Movie[];
@@ -34,11 +34,15 @@ export class MoviesListComponent implements OnInit {
     }
   }
 
-  public movieClicked(movieId: number) {
+  public movieClicked(movieId: number, index: number) {
+    this.selectedRow = index;
     this.onMovieClicked.emit(movieId);
   }
 
   public onPageChanged(pageSelected: number) {
-    if(pageSelected) this.onPageSelected.emit(pageSelected);
+    if(pageSelected) {
+      this.selectedRow = undefined;
+      this.onPageSelected.emit(pageSelected);
+    }
   }
 }
