@@ -17,7 +17,7 @@
                 </thead>
                 <tbody>
                     <ng-container *ngFor="let movie of movies; let i = index">
-                        <tr (click)="movieClicked(movie.id, i)" [class.highlight]="i == selectedRow">
+                        <tr (click)="movieClicked(movie, i)" [class.highlight]="i == selectedRow" class="hoverRow">
                             <td>{{movie.title}}</td>
                             <td>{{movie.popularity}}</td>
                             <td>{{movie.release_date}}</td>

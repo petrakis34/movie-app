@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { Movie } from 'src/app/models/classes/movie.model';
 import { AppEndpoints } from 'src/app/app.endpoints';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './movie-preview.component.html',
   styleUrls: ['./movie-preview.component.less']
 })
-export class MoviePreviewComponent implements OnInit {
+export class MoviePreviewComponent implements OnInit, OnChanges {
   public imageSrc = "";
   
   @Input()

@@ -10,6 +10,7 @@ import { MoviesListComponent } from './components/movie-dashboard/movies-list/mo
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { MovieStatsComponent } from './components/movie-stats/movie-stats.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     MoviePreviewComponent,
     MovieDashboardComponent,
     MoviesListComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    MovieStatsComponent
   ],
   imports: [
     BrowserModule,
