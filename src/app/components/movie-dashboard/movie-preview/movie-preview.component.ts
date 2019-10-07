@@ -24,7 +24,6 @@ export class MoviePreviewComponent implements OnInit {
     if(changes.movie && changes.movie.currentValue) {
       this.movie = changes.movie.currentValue;
       this.getMoviePoster(this.movie);
-      console.log(this.movie);
     }
   }
 

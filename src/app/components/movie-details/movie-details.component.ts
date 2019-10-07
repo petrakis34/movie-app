@@ -48,7 +48,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     } else {
       dateObj = new Date(date);
     }
-    console.log(dateObj.getFullYear().toString());
     return dateObj.getFullYear().toString();
   }
 
@@ -63,7 +62,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
       res.forEach(r => tempGenres.push(r));
       if(tempGenres.length == 0) return;
       tempGenres.filter(r => movie.genre_ids.includes(r.id)).forEach(x => this.genres.push(x.name));
-      console.log(this.genres);
     })
   }
 }

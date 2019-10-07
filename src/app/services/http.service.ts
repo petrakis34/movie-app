@@ -15,10 +15,12 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public retrieveMovies(): Observable<IMovie[]> {
-    return this.httpClient.get<IMoviesResponse>(AppEndpoints.discoverMovies).pipe(
+  public retrieveMovies(page?: number): Observable<IMoviesResponse> {
+    const sort = "popularity.desc";
+    const generatedUrl = AppEndpoints.getQueryUrl(AppEndpoints.discoverMovies, page, sort)
+    return this.httpClient.get<IMoviesResponse>(generatedUrl).pipe(
       map((res) => {
-        return res.results;
+        return res;
       })
     )
   }
@@ -26,7 +28,6 @@ export class HttpService {
   public retrieveGenres(): Observable<IGenre[]> {
     return this.httpClient.get<IMovieGenresResponse>(AppEndpoints.genreMovies).pipe(
       map((res) => { 
-        console.log(res);
         return res.genres })
     );
   }

@@ -13,4 +13,11 @@ export class AppEndpoints {
         })
         return url;
     }
+
+    public static getQueryUrl(url: string, page?: number, sortBy?: string): string{
+        if(page) url += '&page=' + page;
+        if(sortBy) url += '&sort_by=' + sortBy;
+  
+        return url;
+      }
 }

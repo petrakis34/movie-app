@@ -4,7 +4,7 @@
     </div>
 
     <div class="card-body movies-card-body">
-        <div class="movie-table-area overflow-auto">
+        <div class="movie-table-area overflow-auto table-responsive">
             <table class="table table-hover movies-table">
                 <thead>
                     <tr>
@@ -28,5 +28,8 @@
                 </tbody>
             </table>
         </div>
+        <ngb-pagination [collectionSize]="paginationData.totalPages" [(page)]="paginationData.currentPage" 
+            [maxSize]="5" [boundaryLinks]="true" (pageChange)="onPageChanged($event)">
+        </ngb-pagination>
     </div>
 </div>
