@@ -14,7 +14,7 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class MovieDetailsComponent implements OnInit, OnDestroy {
   private movieSub: Subscription;
-  private movie: Movie;
+  public movie: Movie;
   public imageSrc = "";
   public releaseYear: string;
   public genres: string[] = [];
